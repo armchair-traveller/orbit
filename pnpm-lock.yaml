@@ -1,24 +1,30 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@fortawesome/free-solid-svg-icons': ^5.15.3
   '@sveltejs/adapter-static': 1.0.0-next.14
   '@sveltejs/kit': 1.0.0-next.140
   autoprefixer: ^10.3.1
+  classnames: ^2.3.1
   cssnano: ^5.0.6
   postcss: ^8.3.5
   postcss-load-config: ^3.1.0
   svelte: ^3.34.0
+  svelte-fa: ^2.2.1
   svelte-preprocess: ^4.7.4
   tailwindcss: ^2.2.4
 
 devDependencies:
+  '@fortawesome/free-solid-svg-icons': 5.15.3
   '@sveltejs/adapter-static': 1.0.0-next.14
   '@sveltejs/kit': 1.0.0-next.140_svelte@3.41.0
   autoprefixer: 10.3.1_postcss@8.3.6
+  classnames: 2.3.1
   cssnano: 5.0.7_postcss@8.3.6
   postcss: 8.3.6
   postcss-load-config: 3.1.0
   svelte: 3.41.0
+  svelte-fa: 2.2.1
   svelte-preprocess: 4.7.4_20586e2e367ab09f58bf8a47c520096b
   tailwindcss: 2.2.7_7b69a43ec4689fa7484dee35f79a7806
 
@@ -43,6 +49,20 @@ packages:
       '@babel/helper-validator-identifier': 7.14.8
       chalk: 2.4.2
       js-tokens: 4.0.0
+    dev: true
+
+  /@fortawesome/fontawesome-common-types/0.2.35:
+    resolution: {integrity: sha512-IHUfxSEDS9dDGqYwIW7wTN6tn/O8E0n5PcAHz9cAaBoZw6UpG20IG/YM3NNLaGPwPqgjBAFjIURzqoQs3rrtuw==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dev: true
+
+  /@fortawesome/free-solid-svg-icons/5.15.3:
+    resolution: {integrity: sha512-XPeeu1IlGYqz4VWGRAT5ukNMd4VHUEEJ7ysZ7pSSgaEtNvSo+FLurybGJVmiqkQdK50OkSja2bfZXOeyMGRD8Q==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 0.2.35
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
@@ -308,6 +328,10 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
     dev: true
 
   /color-convert/1.9.3:
@@ -1492,6 +1516,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       has-flag: 4.0.0
+    dev: true
+
+  /svelte-fa/2.2.1:
+    resolution: {integrity: sha512-zSMwI7P9654VSFDXUVsJ748QwKRcWHrb5ZW1FVLiD/9X81hpY2QSXcDtDgqtTyulvXQcl/2khFfk0CNMRYLlNA==}
     dev: true
 
   /svelte-hmr/0.14.7_svelte@3.41.0:
