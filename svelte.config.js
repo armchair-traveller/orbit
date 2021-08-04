@@ -1,9 +1,9 @@
 import preprocess from "svelte-preprocess";
-import static from "@sveltejs/adapter-static";
+import JAM from "@sveltejs/adapter-static";
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    adapter: static(),
+    adapter: JAM(),
     // hydrate the <div id="svelte"> element in src/app.html
     target: "#svelte",
   },
