@@ -1,4 +1,6 @@
-<!-- This was supposed to use some sort of chart, but not going to bother for now. That's not the important part. -->
+<!-- This was supposed to use some sort of React chart, but not going to bother for now. That's not the important part.
+  However, if you have time, I suggest usimg svelte-frappe-charts for your charting lib.  
+ Though it might involve some data massaging, which is easy since this is fixed data from the API -->
 <script>
   export let salesData
 </script>
