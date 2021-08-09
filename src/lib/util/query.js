@@ -1,3 +1,9 @@
+/**
+ * Automatically takes care sending JSON if object, and parsing JSON responses.
+ * @param {string} route - path after base route
+ * @param {object} init
+ * @returns {object|Response}
+ */
 export default async function query(route, { ...init } = {}) {
   if (init.body && typeof init.body == 'object') {
     init.body = JSON.stringify(body)
