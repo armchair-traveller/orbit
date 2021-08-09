@@ -25,3 +25,11 @@
     - essentially, any route authenticated is checked with `.isAuthenticated` method from `AuthContext`.
     - Additionally, an Admin route, along with checking `isAuthenticated` will also check `isAdmin`.
   - Pay special attention to AuthProvider and AuthContext, as that's managing the auth details.
+
+**Other**
+
+`/finalized examples` has converted some more finalized forms of the corresponding files (refer to when you get to that point)
+
+- authstore
+- avatardropdown
+- sidebar
