@@ -8,6 +8,7 @@
   import GradientBar from '$lib/components/common/GradientBar.svelte'
   import GradientButton from '$lib/components/common/GradientButton.svelte'
   import logo from '$lib/images/logo.png'
+  import query from '$lib/util/query'
 
   let firstName = '',
     lastName = '',
@@ -55,7 +56,7 @@
           </p>
         </div>
 
-        <form class="mt-8" on:submit={submitCredentials}>
+        <form class="mt-8" on:submit|preventDefault={submitCredentials}>
           {#if signupSuccess}
             <FormSuccess text={signupSuccess} />
           {:else if signupError}

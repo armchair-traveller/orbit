@@ -51,7 +51,7 @@
           </p>
         </div>
 
-        <form on:submit={submitCredentials} class="mt-8">
+        <form on:submit|preventDefault={submitCredentials} class="mt-8">
           {#if loginSuccess}
             <FormSuccess text={loginSuccess} />
           {:else if loginError}

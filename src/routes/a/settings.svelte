@@ -47,7 +47,7 @@
     />{:else if errorMessage}<FormError text={errorMessage} />{/if}
 
   <form
-    on:submit={() =>
+    on:submit|preventDefault={() =>
       saveBio({
         bio,
       })}

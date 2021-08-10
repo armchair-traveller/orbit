@@ -10,7 +10,7 @@
 <!-- this component also required formik and yup for validation... we're just going to assume all inputs are valid -->
 
 <form
-  on:submit={() =>
+  on:submit|preventDefault={() =>
     onSubmit({ name, itemNumber, unitPrice }, function resetForm() {
       name = ''
       itemNumber = ''
