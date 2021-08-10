@@ -6,7 +6,7 @@
 </script>
 
 <p>
-  {salesData}
+  {JSON.stringify(salesData, null, 2)}
 </p>
 
 <!-- import { Line as LineChart } from 'react-chartjs-2'
