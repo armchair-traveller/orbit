@@ -29,7 +29,7 @@
       loginLoading = true
     } catch (error) {
       loginLoading = false
-      const { data } = error.response
+      const data = error.response
       signupError = data.message
       signupSuccess = null
     }
@@ -75,6 +75,7 @@
                   name="firstName"
                   type="text"
                   placeholder="First Name"
+                  bind:value={firstName}
                   required
                 />
               </div>
@@ -87,6 +88,7 @@
                   name="lastName"
                   type="text"
                   placeholder="Last Name"
+                  bind:value={lastName}
                   required
                 />
               </div>
@@ -100,6 +102,7 @@
                 name="email"
                 type="email"
                 placeholder="Email address"
+                bind:value={email}
                 required
               />
             </div>
@@ -112,6 +115,7 @@
                 name="password"
                 type="password"
                 placeholder="Password"
+                bind:value={password}
                 required
               />
             </div>

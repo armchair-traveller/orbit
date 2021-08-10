@@ -68,6 +68,7 @@
                 name="email"
                 type="email"
                 placeholder="Email"
+                bind:value={email}
                 required
               />
             </div>
@@ -80,6 +81,7 @@
                 name="password"
                 type="password"
                 placeholder="Password"
+                bind:value={password}
                 required
               />
             </div>
