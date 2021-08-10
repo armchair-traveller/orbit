@@ -9,6 +9,7 @@
   import GradientButton from '$lib/components/common/GradientButton.svelte'
   import logo from '$lib/images/logo.png'
   import query from '$lib/util/query'
+  import { goto } from '$app/navigation'
 
   let firstName = '',
     lastName = '',
@@ -27,6 +28,14 @@
     }
     try {
       loginLoading = true
+      const data = await query('signup', {
+        method: 'POST',
+        body: credentials,
+      })
+      signupSuccess = data.message
+      signupError = ''
+      goto('/a/dashboard')
+      console.log(data)
     } catch (error) {
       loginLoading = false
       const data = error.response

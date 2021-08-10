@@ -8,6 +8,8 @@
   import GradientBar from '$lib/components/common/GradientBar.svelte'
   import GradientButton from '$lib/components/common/GradientButton.svelte'
   import logo from '$lib/images/logo.png'
+  import query from '$lib/util/query'
+  import { goto } from '$app/navigation'
 
   let loginSuccess,
     loginError,
@@ -22,6 +24,13 @@
     }
     try {
       loginLoading = true
+      const data = await query('authenticate', {
+        method: 'POST',
+        body: credentials,
+      })
+      loginSuccess = data.message
+      loginError = ''
+      goto('/a/dashboard')
     } catch (error) {
       loginLoading = false
       const { data } = error.response
