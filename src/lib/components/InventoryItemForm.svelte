@@ -1,6 +1,6 @@
 <!-- be aware of where it uses onSubmit, you may have to do some data massaging if it's not correct -->
 <script>
-  import Label from './../components/common/Label'
+  import Label from '$lib/components/common/Label.svelte'
   import FormInput from './FormInput.svelte'
   import GradientButton from './common/GradientButton.svelte'
   export let onSubmit

@@ -16,7 +16,7 @@
   let node
   onMount(() => {
     const handleClick = (e) => {
-      if (!node.current.contains(e.target)) {
+      if (!node.contains(e.target)) {
         dropdownOpen = false
       }
     }

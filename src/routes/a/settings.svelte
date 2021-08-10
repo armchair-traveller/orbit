@@ -1,10 +1,10 @@
 <script>
-  import PageTitle from '../components/common/PageTitle.svelte'
-  import Card from './../components/common/Card.svelte'
-  import GradientButton from '../components/common/GradientButton.svelte'
+  import PageTitle from '$lib/components/common/PageTitle.svelte'
+  import Card from '$lib/components/common/Card.svelte'
+  import GradientButton from '$lib/components/common/GradientButton.svelte'
   import query from '$lib/util/query'
-  import FormError from './../components/FormError.svelte'
-  import FormSuccess from './../components/FormSuccess.svelte'
+  import FormError from '$lib/components/FormError.svelte'
+  import FormSuccess from '$lib/components/FormSuccess.svelte'
   import { onMount } from 'svelte'
 
   let bio, successMessage, errorMessage
