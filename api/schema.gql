@@ -1,0 +1,83 @@
+type User {
+  email: String! @unique
+  role: UserRole!
+  firstName: String!
+  lastName: String!
+  bio: String
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+type InventoryItem {
+  user: User
+  name: String!
+  itemNumber: String!
+  unitPrice: Int!
+  image: String!
+}
+
+input CreateUserInput {
+  userInfo: UserInfoInput!
+  password: String!
+}
+
+input UserInfoInput {
+  email: String!
+  role: UserRole!
+  firstName: String!
+  lastName: String!
+  bio: String
+}
+
+input LoginUserInput {
+  email: String!
+  password: String!
+}
+
+type Query {
+  userByEmail(email: String!): User!
+  allInventoryItems: [InventoryItem]
+  allUsers: [User]
+}
+
+type Mutation {
+  createUser(input: CreateUserInput): User! @resolver(name: "create_user")
+  loginUser(input: LoginUserInput): String! @resolver(name: "login_user")
+}
+
+# FQL setup script (uncomment & run after initializing schema):
+# NOTE: Must run one after the other. Don't run them all at once!
+
+# Update(Function('create_user'), {
+#   'body': Query(
+#     Lambda(['input'],
+#       Create(Collection('User'), {
+#         data: Select('userInfo', Var('input')),
+#         credentials: {
+#           password: Select('password', Var('input'))
+#         }
+#       })
+#     )
+#   )
+# })
+
+# Update(Function('login_user'), {
+#   body: Query(
+#     Lambda(
+#       ['input'],
+#       Select(
+#         'secret',
+#         Login(
+#           Match(Index('unique_User_email'), Select('email', Var('input'))),
+#           {
+#             password: Select('password', Var('input')),
+#             ttl: TimeAdd(Now(), 90, 'days'),
+#           }
+#         )
+#       )
+#     )
+#   ),
+# })

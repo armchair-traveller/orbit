@@ -16,11 +16,11 @@
 ✅ root dir  
 ✅ `/public`
 
-`src/`
+✅ `src/`
 
 - App.js
   - The router specifying authenticated and public routes
-  - FetchProvider uses Axios and provides authorization bearer headers
+  - FetchProvider uses Axios and provides authorization bearer headers. But a simple fetch wrapper will do.
   - AuthProvider wraps app providing auth Context
     - essentially, any route authenticated is checked with `.isAuthenticated` method from `AuthContext`.
     - Additionally, an Admin route, along with checking `isAuthenticated` will also check `isAdmin`.

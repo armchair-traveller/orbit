@@ -1,0 +1,7 @@
+name = "TODO YOUR_WORKER_NAME"
+type = "webpack"
+
+account_id = "TODO YOUR_ACCOUNT_ID"
+workers_dev = true
+route = ""
+zone_id = ""
