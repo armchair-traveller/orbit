@@ -10,6 +10,7 @@
   } from '@fortawesome/free-solid-svg-icons'
   import logo from '$lib/images/logo.png'
   import AuthStore from '$lib/stores/AuthStore'
+  import { page } from '$app/stores'
   const navItems = [
     {
       label: 'Dashboard',
@@ -58,9 +59,9 @@
             class={classNames({
               'px-2 sm:px-6 justify-center sm:justify-start py-3 rounded-full flex': true,
               'text-gray-600 hover:text-blue-500 transform hover:translate-x-1 transition ease-in-out duration-100':
-                location.pathname != `/${navItem.path}`,
+                $page.path != `/a/${navItem.path}`,
               'bg-gradient text-gray-100 shadow-lg':
-                location.pathname == `/${navItem.path}`,
+                $page.path == `/a/${navItem.path}`,
             })}
           >
             <div class="flex items-center">
