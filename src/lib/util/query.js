@@ -6,7 +6,8 @@
  */
 export default async function query(route, { ...init } = {}) {
   if (init.body && typeof init.body == 'object') {
-    init.body = JSON.stringify(body)
+    init.body = JSON.stringify(init.body)
+    init.headers ??= {}
     init.headers['Content-type'] = 'application/json'
   }
 
