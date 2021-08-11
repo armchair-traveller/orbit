@@ -17,7 +17,7 @@
   onMount(() => {
     const getDashboardData = async () => {
       try {
-        const data = await query('dashboard-data', { method: 'GET' })
+        const data = await query.get('dashboard-data')
         dashboardData = data
       } catch (err) {
         console.log(err)

@@ -4,7 +4,7 @@
  * @param {object} init
  * @returns {object|Response}
  */
-export default async function query(route, { ...init } = {}) {
+async function q(route, { ...init } = {}) {
   if (init.body && typeof init.body == 'object') {
     init.body = JSON.stringify(init.body)
     init.headers ??= {}
@@ -23,4 +23,24 @@ export default async function query(route, { ...init } = {}) {
     return await resp.json()
 
   return resp
+}
+
+/**
+ * Any method can be used as a property through proxy e.g.
+ * ```js
+ * query.get('route', {body:{}})
+ * ```
+ * It's an axios-like / express-like API
+ */
+export default {
+  __proto__: new Proxy(
+    {},
+    {
+      get:
+        (target, prop) =>
+        (route, init = {}) =>
+          q(route, { method: prop.toUpperCase(), ...init }),
+    }
+  ),
+  fetch: q,
 }

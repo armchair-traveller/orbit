@@ -10,6 +10,7 @@
   import logo from '$lib/images/logo.png'
   import query from '$lib/util/query'
   import { goto } from '$app/navigation'
+  import AuthStore from '$lib/stores/AuthStore'
 
   let loginSuccess,
     loginError,
@@ -24,10 +25,10 @@
     }
     try {
       loginLoading = true
-      const data = await query('authenticate', {
-        method: 'POST',
+      const data = await query.post('authenticate', {
         body: credentials,
       })
+      AuthStore.setAuthState(data)
       loginSuccess = data.message
       loginError = ''
       goto('/a/dashboard')

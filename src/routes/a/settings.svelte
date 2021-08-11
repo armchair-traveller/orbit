@@ -12,9 +12,7 @@
   onMount(() => {
     const getBio = async () => {
       try {
-        const data = await query('bio', {
-          method: 'GET',
-        })
+        const data = await query.get('bio')
         bio = data.bio
       } catch (err) {
         console.log(err)
@@ -25,8 +23,7 @@
 
   const saveBio = async (bio) => {
     try {
-      const data = await query('bio', {
-        method: 'PATCH',
+      const data = await query.patch('bio', {
         body: bio,
       })
       errorMessage = null

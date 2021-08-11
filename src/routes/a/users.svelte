@@ -10,7 +10,7 @@
   onMount(() => {
     const getUsers = async () => {
       try {
-        const data = await query('users', { method: 'GET' })
+        const data = await query.get('users')
         users = data.users
       } catch (err) {
         console.log(err)

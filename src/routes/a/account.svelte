@@ -8,8 +8,7 @@
 
   const setUserRole = async (role) => {
     try {
-      const data = await query('user-role', {
-        method: 'PATCH',
+      const data = await query.patch('user-role', {
         body: { role },
       })
       successMessage = data.message

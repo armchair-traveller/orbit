@@ -10,6 +10,7 @@
   import logo from '$lib/images/logo.png'
   import query from '$lib/util/query'
   import { goto } from '$app/navigation'
+  import AuthStore from '$lib/stores/AuthStore'
 
   let firstName = '',
     lastName = '',
@@ -28,10 +29,11 @@
     }
     try {
       loginLoading = true
-      const data = await query('signup', {
-        method: 'POST',
+      const data = await query.post('signup', {
         body: credentials,
       })
+
+      AuthStore.setAuthState(data)
       signupSuccess = data.message
       signupError = ''
       goto('/a/dashboard')

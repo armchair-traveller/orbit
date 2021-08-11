@@ -21,7 +21,7 @@
   onMount(() => {
     const getInventory = async () => {
       try {
-        const data = await query('inventory', { method: 'GET' })
+        const data = await query.get('inventory')
         inventory = data
       } catch (err) {
         console.log('the err', err)
@@ -33,7 +33,7 @@
 
   const onSubmit = async (values, resetForm) => {
     try {
-      const data = await query('inventory', { method: 'POST', body: values })
+      const data = await query.post('inventory', { body: values })
       inventory = [...inventory, data.inventoryItem]
       resetForm()
       successMessage = data.message
@@ -48,9 +48,7 @@
   const onDelete = async (item) => {
     try {
       if (window.confirm('Are you sure you want to delete this item?')) {
-        const data = await query(`inventory/${item._id}`, {
-          method: 'DELETE',
-        })
+        const data = await query.delete(`inventory/${item._id}`)
         inventory = inventory.filter(
           (item) => item._id !== data.deletedItem._id
         )
