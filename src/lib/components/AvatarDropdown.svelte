@@ -38,7 +38,7 @@
     alt="Avatar"
   />
   <div class="px-3">
-    <p class="text-white">Fang</p>
+    <p class="text-white">{$AuthStore.userInfo?.firstName || ''}</p>
   </div>
   <div class="mr-1 text-white">
     <Fa icon={faCaretDown} />
