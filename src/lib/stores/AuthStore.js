@@ -23,8 +23,10 @@ function createAuth() {
       set({ token, userInfo, expiresAt })
     },
     isAuthenticated() {
-      get
-      return true
+      const { token, expiresAt } = get(store)
+      return !token || !expiresAt
+        ? false
+        : new Date().getTime() / 1000 < authState.expiresAt
     },
   }
 }
