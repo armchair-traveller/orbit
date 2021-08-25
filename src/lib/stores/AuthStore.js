@@ -2,6 +2,7 @@ import { goto } from '$app/navigation'
 import { get, writable } from 'svelte/store'
 
 function createAuth() {
+  const init = { token: null, expiresAt: null, userInfo: {} }
   if (typeof window != 'undefined') {
     var userInfo = localStorage.getItem('userInfo')
     var store = writable({
@@ -9,7 +10,7 @@ function createAuth() {
       expiresAt: localStorage.getItem('expiresAt'),
       userInfo: userInfo ? JSON.parse(userInfo) : {},
     })
-  } else var store = writable({ token: null, expiresAt: null, userInfo: {} })
+  } else var store = writable(init)
   const { set } = store
 
   return {
@@ -31,9 +32,10 @@ function createAuth() {
       localStorage.removeItem('token')
       localStorage.removeItem('userInfo')
       localStorage.removeItem('expiresAt')
-      set({})
+      set(init)
       goto('/login')
     },
+    isAdmin: () => get(store).userInfo?.role === 'admin',
   }
 }
 
