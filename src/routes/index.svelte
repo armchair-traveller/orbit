@@ -2,6 +2,7 @@
   import GradientLink from '$lib/components/common/GradientLink.svelte'
   import GradientBar from '$lib/components/common/GradientBar.svelte'
   import logo from '$lib/images/logo.png'
+  import AuthStore from '$lib/stores/AuthStore'
 </script>
 
 <GradientBar />
@@ -10,7 +11,10 @@
     <img class="w-32 h-full" src={logo} alt="Logo" />
     <div class="flex items-center">
       <a href="/signup" class="text-blue-700 mr-6"> Sign Up </a>
-      <GradientLink href="/login" text="Log In" />
+      <GradientLink
+        href={AuthStore.isAuthenticated() ? '/a/dashboard' : '/login'}
+        text="Log In"
+      />
     </div>
   </div>
 </div>
@@ -33,7 +37,11 @@
         Take the pain out of managing your sales data
       </h2>
       <div class="mt-4 sm:mt-10 w-48">
-        <GradientLink text="Get Started" size="lg" href="/a/dashboard" />
+        <GradientLink
+          text="Get Started"
+          size="lg"
+          href={AuthStore.isAuthenticated() ? '/a/dashboard' : '/login'}
+        />
       </div>
     </div>
   </div>
