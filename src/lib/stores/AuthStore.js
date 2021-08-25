@@ -27,6 +27,13 @@ function createAuth() {
         ? false
         : new Date().getTime() / 1000 < expiresAt
     },
+    logout() {
+      localStorage.removeItem('token')
+      localStorage.removeItem('userInfo')
+      localStorage.removeItem('expiresAt')
+      set({})
+      goto('/login')
+    },
   }
 }
 
